@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Masala Virtual Campus — Formación en Producción Multimedia, IA y Comunicación Digital</title>
+  <meta name="description" content="Campus virtual de Masala Group S.A.S. Formación profesional en producción multimedia, inteligencia artificial aplicada y comunicación digital con instructores activos del sector."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #f5a623; --gold-dark: #d4891a; --black: #0a0a0a;
+      --black-2: #111111; --black-3: #1a1a1a; --white: #ffffff;
+      --grey: #888888; --grey-light: #cccccc; --border: rgba(255,255,255,0.08);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif; background: var(--black);
+      color: var(--white); line-height: 1.6; overflow-x: hidden;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 70px; background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--white); }
+    .nav-logo-text { font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { color: var(--grey-light); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .btn-enroll { background: var(--gold); color: var(--black); font-weight: 700; font-size: 14px; padding: 10px 24px; border-radius: 999px; text-decoration: none; transition: background 0.2s; }
+    @media (max-width: 768px) { .nav-links { display: none; } }
+    
+    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 120px 48px 80px; position: relative; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 60% 40%, rgba(245,166,35,0.08) 0%, transparent 70%); pointer-events: none; }
+    .hero-content { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
+    .hero-badge { background: var(--gold); color: var(--black); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; display: inline-block; margin-bottom: 32px; }
+    .hero h1 { font-size: clamp(40px, 7vw, 76px); font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; max-width: 900px; }
+    .hero-desc { margin-top: 24px; max-width: 560px; font-size: 18px; color: var(--grey-light); line-height: 1.7; }
+    .hero-ctas { display: flex; align-items: center; gap: 20px; margin-top: 40px; flex-wrap: wrap; }
+    .btn-primary { background: var(--gold); color: var(--black); font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 999px; text-decoration: none; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--gold-dark); }
+    
+    section { padding: 100px 48px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .section-title { font-size: clamp(32px, 5vw, 48px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; max-width: 700px; }
+    
+    .programs { background: var(--black); }
+    .programs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 60px; }
+    .program-card { background: var(--black-2); border: 1px solid var(--border); border-radius: 12px; padding: 36px 32px; transition: border-color 0.3s, transform 0.3s; }
+    .program-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+    .program-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .program-card h3 { font-size: 22px; font-weight: 700; line-height: 1.2; margin-bottom: 12px; }
+    .program-card p { font-size: 15px; color: var(--grey-light); line-height: 1.6; }
+    
+    footer { background: var(--black-2); border-top: 1px solid var(--border); padding: 60px 48px 40px; }
+    .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 64px; }
+    .footer-brand { font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+    .footer-desc { font-size: 14px; color: var(--grey-light); line-height: 1.6; margin-top: 12px; }
+    .footer-links { display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { color: var(--grey-light); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 40px; margin-top: 40px; border-top: 1px solid var(--border); text-align: center; font-size: 13px; color: var(--grey); }
+    @media (max-width: 768px) { .footer-content { grid-template-columns: 1fr; gap: 40px; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#" class="nav-logo">
+      <div>
+        <div class="nav-logo-text">Masala Virtual Campus</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#programas">Programas</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#" class="btn-enroll">Inscribirse</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">Cartagena, Colombia 🇨🇴</span>
+      <h1>Formación profesional en producción multimedia, IA y comunicación digital</h1>
+      <p class="hero-desc">Campus virtual de Masala Group S.A.S. Aprende con profesionales activos del sector en cinematografía, inteligencia artificial aplicada y operaciones digitales.</p>
+      <div class="hero-ctas">
+        <a href="#programas" class="btn-primary">Ver programas</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="programas" class="programs">
+    <div class="container">
+      <div class="section-tag">Formación</div>
+      <h2 class="section-title">Programas del Campus Virtual</h2>
+      
+      <div class="programs-grid">
+        <div class="program-card">
+          <div class="program-tag">Producción</div>
+          <h3>Cinematografía y Video Producción</h3>
+          <p>Fundamentos de producción audiovisual, dirección de fotografía, edición y narrativa visual para proyectos profesionales.</p>
+        </div>
+        
+        <div class="program-card">
+          <div class="program-tag">Tecnología</div>
+          <h3>Inteligencia Artificial Aplicada</h3>
+          <p>Herramientas de IA para producción de contenido, automatización de procesos y optimización de flujos de trabajo creativos.</p>
+        </div>
+        
+        <div class="program-card">
+          <div class="program-tag">Operaciones</div>
+          <h3>Operaciones Digitales y Gestión</h3>
+          <p>Gestión de proyectos multimedia, coordinación de equipos, documentación y sistemas de operaciones para estudios creativos.</p>
+        </div>
+        
+        <div class="program-card">
+          <div class="program-tag">Especialización</div>
+          <h3>Video Médico y Científico</h3>
+          <p>Producción especializada de contenido médico, científico y educativo con estándares profesionales de la industria.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div>
+        <div class="footer-brand">Masala Virtual Campus</div>
+        <p class="footer-desc">Campus virtual de Masala Group S.A.S. — Formación profesional en producción multimedia, inteligencia artificial y comunicación digital.</p>
+        <p class="footer-desc" style="margin-top: 20px;">Cartagena de Indias, Colombia 🇨🇴</p>
+      </div>
+      
+      <div>
+        <div class="footer-brand" style="font-size: 12px; margin-bottom: 16px;">Recursos</div>
+        <div class="footer-links">
+          <a href="https://masalastudios.pro" target="_blank">Masala Studios</a>
+          <a href="https://www.notion.so/MASALA-GROUP-S-A-S-OPERATIONS-HQ-3339dd8b5bed802dbcb0c09a03fc60f7" target="_blank">Operations HQ</a>
+          <a href="https://github.com/MasalaStudios-crypto" target="_blank">GitHub</a>
+        </div>
+      </div>
+      
+      <div>
+        <div class="footer-brand" style="font-size: 12px; margin-bottom: 16px;">Contacto</div>
+        <div class="footer-links">
+          <a href="mailto:info@masalastudios.pro">info@masalastudios.pro</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Masala Group S.A.S. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
